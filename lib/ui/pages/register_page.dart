@@ -26,39 +26,70 @@ class RegisterPage extends StatelessWidget {
                   topRight: Radius.circular(32.0),
                 ),
               ),
-              child: Column(
-                children: [
-                  divider20,
-                  Container(
-                    width: 48,
-                    height: 4.5,
-                    decoration: BoxDecoration(
-                      color: Colors.black.withOpacity(0.2),
-                      borderRadius: BorderRadius.circular(10),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    divider20,
+                    Container(
+                      width: 48,
+                      height: 4.5,
+                      decoration: BoxDecoration(
+                        color: Colors.black.withOpacity(0.2),
+                        borderRadius: BorderRadius.circular(10),
+                      ),
                     ),
-                  ),
-                  divider20,
-                  Text(
-                    "Nuevo registro",
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      color: Color(0xff1E1E1E),
-                      fontWeight: FontWeight.w600,
+                    divider20,
+                    Text(
+                      "Nuevo registro",
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        color: Color(0xff1E1E1E),
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  ),
-                  divider6,
-                  Text(
-                    "Por favor ingresa todos los datos solicitados a continuación",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 14.0,
-                      height: 1.6,
-                      color: Color(0xff1E1E1E).withOpacity(0.7),
-                      fontWeight: FontWeight.w500,
+                    divider6,
+                    Text(
+                      "Por favor ingresa todos los datos solicitados a continuación",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 14.0,
+                        height: 1.6,
+                        color: Color(0xff1E1E1E).withOpacity(0.7),
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
-                  ),
-                  divider30,
-                ],
+                    divider30,
+
+                    Container(
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.06),
+                            offset: const Offset(4, 4),
+                            blurRadius: 12.0,
+                          ),
+                        ],
+                      ),
+                      child: TextField(
+                        decoration: InputDecoration(
+                          contentPadding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 16.0),
+                          hintText: "Ingrese título",
+                          hintStyle: TextStyle(
+                            color: kBrandSecondaryColor.withOpacity(0.45),
+                          ),
+                          filled: true,
+                          fillColor: Colors.white,
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(14.0),
+                            borderSide: BorderSide.none,
+                          ),
+                        ),
+                      ),
+                    ),
+
+                  ],
+                ),
               ),
             ),
           ),
