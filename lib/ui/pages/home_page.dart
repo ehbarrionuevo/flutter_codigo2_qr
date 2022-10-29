@@ -1,4 +1,5 @@
 
+import 'package:codigo2_qr/ui/widgets/general_widget.dart';
 import 'package:codigo2_qr/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -26,6 +27,15 @@ class HomePage extends StatelessWidget {
                       children: [
                         Text("Lorem ipsum dolor sit amet",),
                         Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",),
+                        Row(
+                          children: [
+                            SvgPicture.asset(Assets.iconCalendar,),
+                            Text("12/12/2022",),
+
+                            SvgPicture.asset(Assets.iconTime,),
+                            Text("12/12/2022",),
+                          ],
+                        ),
                       ],
                     ),
                   ),
