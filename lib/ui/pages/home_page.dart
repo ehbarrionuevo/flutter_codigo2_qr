@@ -18,7 +18,7 @@ class HomePage extends StatelessWidget {
           Expanded(
             flex: 7,
             child: Container(
-              padding: const EdgeInsets.only(top: 24),
+              padding: const EdgeInsets.only(top: 10),
               decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -28,24 +28,45 @@ class HomePage extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  Text(
-                    "Historial de Escaneos",
-                    style: TextStyle(
-                      fontSize: 18.0,
-                      color: Color(0xff1E1E1E),
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  divider6,
-                  Text(
-                    "En esta sección podrás visualizar los elementos que escaneaste con anterioridad",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 14.0,
-                      color: Color(0xff1E1E1E).withOpacity(0.7),
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
+
+                 Padding(
+                   padding: const EdgeInsets.all(16.0),
+                   child: Column(
+                     children: [
+                       Container(
+                         width: 48,
+                         height: 4.5,
+                         decoration: BoxDecoration(
+                           color: Colors.black.withOpacity(0.2),
+                           borderRadius: BorderRadius.circular(10),
+                         ),
+                       ),
+                       divider30,
+                       Text(
+                         "Historial de Escaneos",
+                         style: TextStyle(
+                           fontSize: 18.0,
+                           color: Color(0xff1E1E1E),
+                           fontWeight: FontWeight.w600,
+                         ),
+                       ),
+                       divider6,
+                       Text(
+                         "En esta sección podrás visualizar el historial de elementos registrados, también puedes agregar nuevos ingresos cuando tú prefieras.",
+                         textAlign: TextAlign.center,
+                         style: TextStyle(
+                           fontSize: 14.0,
+                           height: 1.6,
+                           color: Color(0xff1E1E1E).withOpacity(0.7),
+                           fontWeight: FontWeight.w500,
+                         ),
+                       ),
+                     ],
+                   ),
+                 ),
+
+
+
                   Expanded(
                     child: SingleChildScrollView(
                       physics: const BouncingScrollPhysics(),
