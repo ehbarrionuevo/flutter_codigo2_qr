@@ -91,7 +91,7 @@ class HomePage extends StatelessWidget {
                               ),
                               alignment: Alignment.center,
                               decoration: BoxDecoration(
-                                  color: Colors.black12,
+                                  color: Colors.black.withOpacity(0.06),
                                   borderRadius: BorderRadius.circular(30),
                               ),
                               child: Text(
