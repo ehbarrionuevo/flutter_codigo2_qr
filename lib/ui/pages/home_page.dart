@@ -1,5 +1,7 @@
 
+import 'package:codigo2_qr/utils/assets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -27,7 +29,7 @@ class HomePage extends StatelessWidget {
                       ],
                     ),
                   ),
-
+                  SvgPicture.asset(Assets.iconLink),
                 ],
               ),
             ),
