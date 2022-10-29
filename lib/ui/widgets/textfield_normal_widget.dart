@@ -1,4 +1,3 @@
-
 import 'package:codigo2_qr/ui/widgets/general_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -7,7 +6,14 @@ import '../../utils/assets.dart';
 import '../general/colors.dart';
 
 class TextFieldNormalWidget extends StatelessWidget {
-  const TextFieldNormalWidget({Key? key}) : super(key: key);
+
+  String text;
+  String icon;
+
+  TextFieldNormalWidget({
+    required this.text,
+    required this.icon,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +21,7 @@ class TextFieldNormalWidget extends StatelessWidget {
       children: [
         Row(
           children: [
-            Text(" Título"),
+            Text(" $text"),
           ],
         ),
         divider6,
@@ -31,14 +37,14 @@ class TextFieldNormalWidget extends StatelessWidget {
           ),
           child: TextField(
             decoration: InputDecoration(
-              contentPadding: EdgeInsets.symmetric(
-                  horizontal: 12.0, vertical: 16.0),
-              hintText: "Ingrese título",
+              contentPadding:
+                  EdgeInsets.symmetric(horizontal: 12.0, vertical: 16.0),
+              hintText: "Ingrese ${text.toLowerCase()}",
               hintStyle: TextStyle(
                 color: kBrandSecondaryColor.withOpacity(0.45),
               ),
               prefixIcon: SvgPicture.asset(
-                Assets.iconTitle,
+                icon,
                 height: 20,
                 color: kBrandSecondaryColor.withOpacity(0.45),
                 fit: BoxFit.scaleDown,

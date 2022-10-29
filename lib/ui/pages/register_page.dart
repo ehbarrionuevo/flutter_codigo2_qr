@@ -64,9 +64,15 @@ class RegisterPage extends StatelessWidget {
                     ),
                     divider30,
 
-                    TextFieldNormalWidget(),
+                    TextFieldNormalWidget(
+                      text: "Título",
+                      icon: Assets.iconTitle,
+                    ),
                     divider20,
-                    TextFieldNormalWidget(),
+                    TextFieldNormalWidget(
+                      text: "Descripción",
+                      icon: Assets.iconDescription,
+                    ),
 
                   ],
                 ),
