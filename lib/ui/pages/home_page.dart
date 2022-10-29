@@ -1,4 +1,5 @@
 import 'package:codigo2_qr/ui/general/colors.dart';
+import 'package:codigo2_qr/ui/pages/scanner_page.dart';
 import 'package:codigo2_qr/ui/widgets/button_filter_widget.dart';
 import 'package:codigo2_qr/ui/widgets/general_widget.dart';
 import 'package:codigo2_qr/ui/widgets/item_list_widget.dart';
@@ -19,7 +20,11 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: kBrandSecondaryColor,
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> ScannerPage()));
+
+        },
         backgroundColor: kBrandPrimaryColor,
         child: SvgPicture.asset(
           Assets.iconQrScan,
