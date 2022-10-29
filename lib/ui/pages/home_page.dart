@@ -28,45 +28,86 @@ class HomePage extends StatelessWidget {
               ),
               child: Column(
                 children: [
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      children: [
+                        Container(
+                          width: 48,
+                          height: 4.5,
+                          decoration: BoxDecoration(
+                            color: Colors.black.withOpacity(0.2),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        divider40,
+                        Text(
+                          "Historial de Escaneos",
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            color: Color(0xff1E1E1E),
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        divider6,
+                        Text(
+                          "En esta sección podrás visualizar el historial de elementos registrados, también puedes agregar nuevos ingresos cuando tú prefieras.",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 14.0,
+                            height: 1.6,
+                            color: Color(0xff1E1E1E).withOpacity(0.7),
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
 
-                 Padding(
-                   padding: const EdgeInsets.all(16.0),
-                   child: Column(
-                     children: [
-                       Container(
-                         width: 48,
-                         height: 4.5,
-                         decoration: BoxDecoration(
-                           color: Colors.black.withOpacity(0.2),
-                           borderRadius: BorderRadius.circular(10),
-                         ),
-                       ),
-                       divider30,
-                       Text(
-                         "Historial de Escaneos",
-                         style: TextStyle(
-                           fontSize: 18.0,
-                           color: Color(0xff1E1E1E),
-                           fontWeight: FontWeight.w600,
-                         ),
-                       ),
-                       divider6,
-                       Text(
-                         "En esta sección podrás visualizar el historial de elementos registrados, también puedes agregar nuevos ingresos cuando tú prefieras.",
-                         textAlign: TextAlign.center,
-                         style: TextStyle(
-                           fontSize: 14.0,
-                           height: 1.6,
-                           color: Color(0xff1E1E1E).withOpacity(0.7),
-                           fontWeight: FontWeight.w500,
-                         ),
-                       ),
-                     ],
-                   ),
-                 ),
+                        divider30,
 
-
-
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              width: 90,
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 12.0, vertical: 14.0),
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  color: Color(0xffFE7D55),
+                                  borderRadius: BorderRadius.circular(30)),
+                              child: Text(
+                                "Hoy",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 15.0
+                                ),
+                              ),
+                            ),
+                            dividerWidth14,
+                            Container(
+                              width: 90,
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 12.0, vertical: 14.0,
+                              ),
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                  color: Colors.black12,
+                                  borderRadius: BorderRadius.circular(30),
+                              ),
+                              child: Text(
+                                "Todos",
+                                style: TextStyle(
+                                    color: Color(0xff1e1e1e),
+                                    fontWeight: FontWeight.normal,
+                                    fontSize: 15.0
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
                   Expanded(
                     child: SingleChildScrollView(
                       physics: const BouncingScrollPhysics(),
