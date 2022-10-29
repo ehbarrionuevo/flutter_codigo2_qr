@@ -1,3 +1,5 @@
+import 'package:codigo2_qr/ui/general/colors.dart';
+import 'package:codigo2_qr/ui/widgets/button_filter_widget.dart';
 import 'package:codigo2_qr/ui/widgets/general_widget.dart';
 import 'package:codigo2_qr/ui/widgets/item_list_widget.dart';
 import 'package:codigo2_qr/utils/assets.dart';
@@ -8,7 +10,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff1E1E1E),
+      backgroundColor: kBrandSecondaryColor,
       body: Column(
         children: [
           const Expanded(
@@ -66,43 +68,9 @@ class HomePage extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Container(
-                              width: 90,
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 12.0, vertical: 14.0),
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                  color: Color(0xffFE7D55),
-                                  borderRadius: BorderRadius.circular(30)),
-                              child: Text(
-                                "Hoy",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 15.0
-                                ),
-                              ),
-                            ),
+                            ButtonFilterWidget(),
                             dividerWidth14,
-                            Container(
-                              width: 90,
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 12.0, vertical: 14.0,
-                              ),
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                  color: Colors.black.withOpacity(0.06),
-                                  borderRadius: BorderRadius.circular(30),
-                              ),
-                              child: Text(
-                                "Todos",
-                                style: TextStyle(
-                                    color: Color(0xff1e1e1e),
-                                    fontWeight: FontWeight.normal,
-                                    fontSize: 15.0
-                                ),
-                              ),
-                            ),
+                            ButtonFilterWidget(),
                           ],
                         ),
                       ],
