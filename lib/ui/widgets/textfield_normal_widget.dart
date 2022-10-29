@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:codigo2_qr/ui/widgets/general_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -9,10 +11,12 @@ class TextFieldNormalWidget extends StatelessWidget {
 
   String text;
   String icon;
+  int? maxLines;
 
   TextFieldNormalWidget({
     required this.text,
     required this.icon,
+    this.maxLines,
   });
 
   @override
@@ -36,6 +40,7 @@ class TextFieldNormalWidget extends StatelessWidget {
             ],
           ),
           child: TextField(
+            maxLines: maxLines,
             decoration: InputDecoration(
               contentPadding:
                   EdgeInsets.symmetric(horizontal: 12.0, vertical: 16.0),

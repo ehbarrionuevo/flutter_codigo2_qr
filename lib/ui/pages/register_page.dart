@@ -4,6 +4,7 @@ import 'package:codigo2_qr/ui/widgets/textfield_normal_widget.dart';
 import 'package:codigo2_qr/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class RegisterPage extends StatelessWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -63,7 +64,6 @@ class RegisterPage extends StatelessWidget {
                       ),
                     ),
                     divider30,
-
                     TextFieldNormalWidget(
                       text: "Título",
                       icon: Assets.iconTitle,
@@ -72,8 +72,19 @@ class RegisterPage extends StatelessWidget {
                     TextFieldNormalWidget(
                       text: "Descripción",
                       icon: Assets.iconDescription,
+                      maxLines: 4,
                     ),
+                    SizedBox(
+                      width: 200,
+                      height: 200,
+                      child: QrImage(
+                        data: "https://www.youtube.com/watch?v=XUwzASyHr4Q&ab_channel=WebDevSimplified",
+                        backgroundColor: Colors.red,
+                        foregroundColor: Colors.yellow,
 
+                        embeddedImage: NetworkImage("https://images.pexels.com/photos/13313434/pexels-photo-13313434.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+                      ),
+                    ),
                   ],
                 ),
               ),
