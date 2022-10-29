@@ -71,11 +71,17 @@ class HomePage extends StatelessWidget {
                             ButtonFilterWidget(
                               text: "Hoy",
                               isSelected: true,
+                              onTap: (){
+
+                              },
                             ),
                             dividerWidth14,
                             ButtonFilterWidget(
                               text: "Todos",
                               isSelected: false,
+                              onTap: (){
+
+                              },
                             ),
                           ],
                         ),
