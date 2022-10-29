@@ -26,19 +26,30 @@ class HomePage extends StatelessWidget {
                   topRight: Radius.circular(32.0),
                 ),
               ),
-              child: SingleChildScrollView(
-                physics: const BouncingScrollPhysics(),
-                child: Column(
-                  children: [
-                    ItemListWidget(),
-                    ItemListWidget(),
-                    ItemListWidget(),
-                    ItemListWidget(),
-                    ItemListWidget(),
-                    ItemListWidget(),
-                    ItemListWidget(),
-                  ],
-                ),
+              child: Column(
+                children: [
+                  Text("Hola"),
+                  Text("Hola"),
+                  Text("Hola"),
+                  Text("Hola"),
+                  Text("Hola"),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      physics: const BouncingScrollPhysics(),
+                      child: Column(
+                        children: [
+                          ItemListWidget(),
+                          ItemListWidget(),
+                          ItemListWidget(),
+                          ItemListWidget(),
+                          ItemListWidget(),
+                          ItemListWidget(),
+                          ItemListWidget(),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
