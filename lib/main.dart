@@ -1,6 +1,7 @@
 
 import 'package:codigo2_qr/ui/pages/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main(){
   runApp(MyApp());
@@ -14,6 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: "QRApp",
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        textTheme: GoogleFonts.sourceSansProTextTheme(),
+      ),
       home: HomePage(),
     );
   }
