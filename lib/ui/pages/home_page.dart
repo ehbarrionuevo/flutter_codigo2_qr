@@ -68,9 +68,15 @@ class HomePage extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            ButtonFilterWidget(),
+                            ButtonFilterWidget(
+                              text: "Hoy",
+                              isSelected: true,
+                            ),
                             dividerWidth14,
-                            ButtonFilterWidget(),
+                            ButtonFilterWidget(
+                              text: "Todos",
+                              isSelected: false,
+                            ),
                           ],
                         ),
                       ],
