@@ -9,16 +9,40 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff1E1E1E),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            ItemListWidget(),
-            ItemListWidget(),
-            ItemListWidget(),
-            ItemListWidget(),
-            ItemListWidget(),
-          ],
-        ),
+      body: Column(
+        children: [
+          const Expanded(
+            flex: 1,
+            child: SizedBox(),
+          ),
+          Expanded(
+            flex: 7,
+            child: Container(
+              padding: const EdgeInsets.only(top: 24),
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(32.0),
+                  topRight: Radius.circular(32.0),
+                ),
+              ),
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: Column(
+                  children: [
+                    ItemListWidget(),
+                    ItemListWidget(),
+                    ItemListWidget(),
+                    ItemListWidget(),
+                    ItemListWidget(),
+                    ItemListWidget(),
+                    ItemListWidget(),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
