@@ -12,13 +12,20 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   String buttonValue = "Hoy";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: kBrandSecondaryColor,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: kBrandPrimaryColor,
+        child: SvgPicture.asset(
+          Assets.iconQrScan,
+          color: Colors.white,
+        ),
+      ),
       body: Column(
         children: [
           const Expanded(
@@ -70,31 +77,25 @@ class _HomePageState extends State<HomePage> {
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-
                         divider30,
-
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             ButtonFilterWidget(
                               text: "Hoy",
                               isSelected: buttonValue == "Hoy",
-                              onTap: (){
+                              onTap: () {
                                 buttonValue = "Hoy";
-                                setState(() {
-
-                                });
+                                setState(() {});
                               },
                             ),
                             dividerWidth14,
                             ButtonFilterWidget(
                               text: "Todos",
                               isSelected: buttonValue == "Todos",
-                              onTap: (){
+                              onTap: () {
                                 buttonValue = "Todos";
-                                setState(() {
-
-                                });
+                                setState(() {});
                               },
                             ),
                           ],
