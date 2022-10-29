@@ -6,7 +6,15 @@ import 'package:codigo2_qr/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+
+  String buttonValue = "Hoy";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -70,17 +78,23 @@ class HomePage extends StatelessWidget {
                           children: [
                             ButtonFilterWidget(
                               text: "Hoy",
-                              isSelected: true,
+                              isSelected: buttonValue == "Hoy",
                               onTap: (){
+                                buttonValue = "Hoy";
+                                setState(() {
 
+                                });
                               },
                             ),
                             dividerWidth14,
                             ButtonFilterWidget(
                               text: "Todos",
-                              isSelected: false,
+                              isSelected: buttonValue == "Todos",
                               onTap: (){
+                                buttonValue = "Todos";
+                                setState(() {
 
+                                });
                               },
                             ),
                           ],
