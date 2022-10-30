@@ -72,17 +72,38 @@ class RegisterPage extends StatelessWidget {
                     TextFieldNormalWidget(
                       text: "Descripción",
                       icon: Assets.iconDescription,
-                      maxLines: 4,
+                      maxLines: 3,
                     ),
-                    SizedBox(
-                      width: 200,
-                      height: 200,
-                      child: QrImage(
-                        data: "https://www.youtube.com/watch?v=XUwzASyHr4Q&ab_channel=WebDevSimplified",
-                        backgroundColor: Colors.red,
-                        foregroundColor: Colors.yellow,
+                    divider30,
+                    const Text(
+                      "Qr Generado",
+                    ),
+                    divider6,
+                    QrImage(
+                      size: 120,
+                      data:
+                          "https://www.youtube.com/watch?v=XUwzASyHr4Q&ab_channel=WebDevSimplified",
+                    ),
+                    divider14,
 
-                        embeddedImage: NetworkImage("https://images.pexels.com/photos/13313434/pexels-photo-13313434.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"),
+                    SizedBox(
+                      width: double.infinity,
+                      height: 50.0,
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: kBrandPrimaryColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(14.0),
+                          ),
+                        ),
+                        child: Text(
+                          "Registrar",
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
                       ),
                     ),
                   ],
