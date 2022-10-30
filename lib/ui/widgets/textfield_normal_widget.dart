@@ -44,6 +44,7 @@ class TextFieldNormalWidget extends StatelessWidget {
           child: TextFormField(
             controller: controller,
             maxLines: maxLines,
+
             decoration: InputDecoration(
               contentPadding:
                   EdgeInsets.symmetric(horizontal: 12.0, vertical: 16.0),
@@ -67,9 +68,27 @@ class TextFieldNormalWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(14.0),
                 borderSide: BorderSide.none,
               ),
+              errorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(14.0),
+                borderSide: BorderSide.none,
+              ),
+              focusedErrorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(14.0),
+                borderSide: BorderSide.none,
+              ),
+              errorStyle: TextStyle(
+                fontSize: 12.0,
+              ),
             ),
             validator: (value){
-              return "Hola";
+
+              if(value != null && value.isEmpty){
+                return "Campo obligatorio";
+              }
+
+              return null;
+
+
             },
           ),
         ),
