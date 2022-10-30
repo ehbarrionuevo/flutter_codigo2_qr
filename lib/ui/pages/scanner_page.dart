@@ -17,6 +17,10 @@ class _ScannerPageState extends State<ScannerPage> {
   QRViewController? controller;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
 
+  bool isUrl = false;
+  String valueUrl = "";
+
+
   @override
   void reassemble() {
     super.reassemble();
@@ -26,7 +30,7 @@ class _ScannerPageState extends State<ScannerPage> {
     controller!.resumeCamera();
   }
 
-
+  //
   bool checkURL(String value){
     bool res = value.contains("http");
     return res;
@@ -63,9 +67,8 @@ class _ScannerPageState extends State<ScannerPage> {
       setState(() {
         result = scanData;
         if (result != null) {
-          String value = result!.code!;
-          bool isUrl = checkURL(value);
-          print("QQQQQQQQQQQQQQQQQQQQQQQQQQ ${isUrl}");
+          valueUrl = result!.code!;
+          isUrl = checkURL(valueUrl);
         }
       });
     });
