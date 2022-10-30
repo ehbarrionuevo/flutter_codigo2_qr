@@ -1,3 +1,6 @@
+import 'dart:io';
+
+import 'package:codigo2_qr/ui/general/colors.dart';
 import 'package:codigo2_qr/ui/pages/register_page.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
@@ -13,11 +16,21 @@ class _ScannerPageState extends State<ScannerPage> {
   QRViewController? controller;
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
 
+  @override
+  void reassemble() {
+    super.reassemble();
+    if (Platform.isAndroid) {
+      controller!.pauseCamera();
+    }
+    controller!.resumeCamera();
+  }
+
+
   Widget _buildQrView(BuildContext context) {
     // For this example we check how width or tall the device is and change the scanArea and overlay accordingly.
     var scanArea = (MediaQuery.of(context).size.width < 400 ||
         MediaQuery.of(context).size.height < 400)
-        ? 150.0
+        ? 250.0
         : 300.0;
     // To ensure the Scanner view is properly sizes after rotation
     // we need to listen for Flutter SizeChanged notification and update controller
@@ -25,11 +38,12 @@ class _ScannerPageState extends State<ScannerPage> {
       key: qrKey,
       onQRViewCreated: _onQRViewCreated,
       overlay: QrScannerOverlayShape(
-          borderColor: Colors.red,
-          borderRadius: 10,
-          borderLength: 30,
-          borderWidth: 10,
-          cutOutSize: scanArea),
+          borderColor: kBrandPrimaryColor,
+          borderRadius: 14,
+          borderLength: 26,
+          borderWidth: 7,
+          cutOutSize: scanArea,
+      ),
       onPermissionSet: (ctrl, p) => _onPermissionSet(context, ctrl, p),
     );
   }
@@ -41,6 +55,7 @@ class _ScannerPageState extends State<ScannerPage> {
     controller.scannedDataStream.listen((scanData) {
       setState(() {
         result = scanData;
+        print("wwwwwwwwwwwwwwwwwwww ${result}");
       });
     });
   }
@@ -51,6 +66,12 @@ class _ScannerPageState extends State<ScannerPage> {
         const SnackBar(content: Text('no Permission')),
       );
     }
+  }
+
+  @override
+  void dispose() {
+    controller?.dispose();
+    super.dispose();
   }
 
   @override
