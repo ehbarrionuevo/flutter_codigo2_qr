@@ -58,7 +58,7 @@ class RegisterPage extends StatelessWidget {
                       ),
                       divider6,
                       Text(
-                        "Por favor ingresa todos los datos solicitados a continuación",
+                        "Por favor ingresa todos los datos solicitados a continuación ",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 14.0,
