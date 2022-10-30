@@ -26,6 +26,13 @@ class _ScannerPageState extends State<ScannerPage> {
     controller!.resumeCamera();
   }
 
+
+  bool checkURL(String value){
+    bool res = value.contains("http");
+    return res;
+  }
+
+
   Widget _buildQrView(BuildContext context) {
     // For this example we check how width or tall the device is and change the scanArea and overlay accordingly.
     var scanArea = (MediaQuery.of(context).size.width < 400 ||
@@ -56,7 +63,9 @@ class _ScannerPageState extends State<ScannerPage> {
       setState(() {
         result = scanData;
         if (result != null) {
-          print("wwwwwwwwwwwwwwwwwwww ${result!.code}");
+          String value = result!.code!;
+          bool isUrl = checkURL(value);
+          print("QQQQQQQQQQQQQQQQQQQQQQQQQQ ${isUrl}");
         }
       });
     });
@@ -106,6 +115,10 @@ class _ScannerPageState extends State<ScannerPage> {
                 children: [
                   Text(
                     "Por favor, escanea un código QR.",
+                    //"https://www.youtube.com/watch?v=XQ45gynAUPg&ab_channel=AbbaVEVO https://www.youtube.com/watch?v=XQ45gynAUPg&ab_channel=AbbaVEVO",
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 15.0,
