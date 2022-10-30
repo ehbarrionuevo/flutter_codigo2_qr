@@ -44,7 +44,6 @@ class TextFieldNormalWidget extends StatelessWidget {
           child: TextFormField(
             controller: controller,
             maxLines: maxLines,
-
             decoration: InputDecoration(
               contentPadding:
                   EdgeInsets.symmetric(horizontal: 12.0, vertical: 16.0),
@@ -86,8 +85,11 @@ class TextFieldNormalWidget extends StatelessWidget {
                 return "Campo obligatorio";
               }
 
-              return null;
+              if(value != null && value.length <= 5){
+                return "Debe de contener más de 6 letras";
+              }
 
+              return null;
 
             },
           ),
