@@ -93,14 +93,14 @@ class RegisterPage extends StatelessWidget {
                           controller: _descriptionController,
                         ),
 
-                        divider20,
-
-                        TextFieldNormalWidget(
-                          text: "DNI",
-                          icon: Assets.iconTitle,
-                          controller: _dniController,
-                          type: InputTypeEnum.dni,
-                        ),
+                        // divider20,
+                        //
+                        // TextFieldNormalWidget(
+                        //   text: "DNI",
+                        //   icon: Assets.iconTitle,
+                        //   controller: _dniController,
+                        //   type: InputTypeEnum.dni,
+                        // ),
 
 
                         divider30,
