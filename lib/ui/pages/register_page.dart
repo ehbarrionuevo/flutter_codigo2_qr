@@ -3,6 +3,7 @@ import 'package:codigo2_qr/ui/widgets/button_normal_widget.dart';
 import 'package:codigo2_qr/ui/widgets/general_widget.dart';
 import 'package:codigo2_qr/ui/widgets/textfield_normal_widget.dart';
 import 'package:codigo2_qr/utils/assets.dart';
+import 'package:codigo2_qr/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:qr_flutter/qr_flutter.dart';
@@ -13,6 +14,7 @@ class RegisterPage extends StatelessWidget {
 
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
+  final TextEditingController _dniController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -89,6 +91,15 @@ class RegisterPage extends StatelessWidget {
                           icon: Assets.iconDescription,
                           maxLines: 3,
                           controller: _descriptionController,
+                        ),
+
+                        divider20,
+
+                        TextFieldNormalWidget(
+                          text: "DNI",
+                          icon: Assets.iconTitle,
+                          controller: _dniController,
+                          type: InputTypeEnum.dni,
                         ),
 
 

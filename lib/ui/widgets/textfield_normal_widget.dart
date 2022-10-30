@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:codigo2_qr/ui/widgets/general_widget.dart';
+import 'package:codigo2_qr/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -13,12 +14,14 @@ class TextFieldNormalWidget extends StatelessWidget {
   String icon;
   int? maxLines;
   TextEditingController controller;
+  InputTypeEnum? type;
 
   TextFieldNormalWidget({
     required this.text,
     required this.icon,
     this.maxLines,
     required this.controller,
+    this.type = InputTypeEnum.normal
   });
 
   @override
@@ -44,6 +47,8 @@ class TextFieldNormalWidget extends StatelessWidget {
           child: TextFormField(
             controller: controller,
             maxLines: maxLines,
+            maxLength: type == InputTypeEnum.dni ? 8 : null,
+            keyboardType: type == InputTypeEnum.dni ? TextInputType.number : TextInputType.text,
             decoration: InputDecoration(
               contentPadding:
                   EdgeInsets.symmetric(horizontal: 12.0, vertical: 16.0),
