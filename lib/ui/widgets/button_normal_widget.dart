@@ -16,7 +16,11 @@ class ButtonNormalWidget extends StatelessWidget {
       width: double.infinity,
       height: 50.0,
       child: ElevatedButton(
-        onPressed: onPressed != null ? (){ onPressed!(); } : null,
+        onPressed: onPressed != null
+            ? () {
+                onPressed!();
+              }
+            : null,
         style: ElevatedButton.styleFrom(
           backgroundColor: kBrandPrimaryColor,
           shape: RoundedRectangleBorder(

@@ -20,7 +20,6 @@ class _ScannerPageState extends State<ScannerPage> {
   bool isUrl = false;
   String valueUrl = "";
 
-
   @override
   void reassemble() {
     super.reassemble();
@@ -31,11 +30,10 @@ class _ScannerPageState extends State<ScannerPage> {
   }
 
   //
-  bool checkURL(String value){
+  bool checkURL(String value) {
     bool res = value.contains("http");
     return res;
   }
-
 
   Widget _buildQrView(BuildContext context) {
     // For this example we check how width or tall the device is and change the scanArea and overlay accordingly.
@@ -93,12 +91,6 @@ class _ScannerPageState extends State<ScannerPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => RegisterPage()));
-        },
-      ),
       body: Column(
         children: [
           Expanded(
@@ -108,7 +100,9 @@ class _ScannerPageState extends State<ScannerPage> {
           Expanded(
             flex: 1,
             child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 16.0,),
+              padding: EdgeInsets.symmetric(
+                horizontal: 16.0,
+              ),
               width: double.infinity,
               decoration: BoxDecoration(
                 color: kBrandSecondaryColor,
@@ -128,7 +122,22 @@ class _ScannerPageState extends State<ScannerPage> {
                     ),
                   ),
                   divider14,
-                  ButtonNormalWidget(text: "Registrar QR", onPressed: isUrl ? (){} : null ),
+                  ButtonNormalWidget(
+                    text: "Registrar QR",
+                    onPressed: !isUrl
+                        ? () {
+                            Navigator.pop(context);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => RegisterPage(
+                                  valueQR: "https://github.com/juliuscanute/qr_code_scanner/issues/560",
+                                ),
+                              ),
+                            );
+                          }
+                        : null,
+                  ),
                 ],
               ),
             ),

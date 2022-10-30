@@ -10,6 +10,11 @@ import 'package:qr_flutter/qr_flutter.dart';
 
 class RegisterPage extends StatelessWidget {
 
+  String valueQR;
+
+  RegisterPage({required this.valueQR,});
+
+
   final _keyForm = GlobalKey<FormState>();
 
   final TextEditingController _titleController = TextEditingController();
@@ -110,8 +115,7 @@ class RegisterPage extends StatelessWidget {
                         divider6,
                         QrImage(
                           size: 120,
-                          data:
-                              "https://www.youtube.com/watch?v=XUwzASyHr4Q&ab_channel=WebDevSimplified",
+                          data: valueQR,
                         ),
                         divider14,
 
