@@ -117,7 +117,7 @@ class _ScannerPageState extends State<ScannerPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Por favor, escanea un código QR.",
+                    isUrl ? valueUrl : "Por favor, escanea un código QR.",
                     //"https://www.youtube.com/watch?v=XQ45gynAUPg&ab_channel=AbbaVEVO https://www.youtube.com/watch?v=XQ45gynAUPg&ab_channel=AbbaVEVO",
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
@@ -128,7 +128,7 @@ class _ScannerPageState extends State<ScannerPage> {
                     ),
                   ),
                   divider14,
-                  ButtonNormalWidget(text: "Registrar QR", onPressed: (){},),
+                  ButtonNormalWidget(text: "Registrar QR", onPressed: isUrl ? (){} : null ),
                 ],
               ),
             ),
