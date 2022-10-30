@@ -24,6 +24,7 @@ class RegisterPage extends StatelessWidget {
             flex: 7,
             child: Container(
               width: double.infinity,
+              padding: const EdgeInsets.only(top: 22),
               decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -31,67 +32,73 @@ class RegisterPage extends StatelessWidget {
                   topRight: Radius.circular(32.0),
                 ),
               ),
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    divider20,
-                    Container(
-                      width: 48,
-                      height: 4.5,
-                      decoration: BoxDecoration(
-                        color: Colors.black.withOpacity(0.2),
-                        borderRadius: BorderRadius.circular(10),
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    children: [
+                      divider20,
+                      Container(
+                        width: 48,
+                        height: 4.5,
+                        decoration: BoxDecoration(
+                          color: Colors.black.withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                       ),
-                    ),
-                    divider20,
-                    Text(
-                      "Nuevo registro",
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        color: Color(0xff1E1E1E),
-                        fontWeight: FontWeight.w600,
+                      divider20,
+                      Text(
+                        "Nuevo registro",
+                        style: TextStyle(
+                          fontSize: 18.0,
+                          color: Color(0xff1E1E1E),
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                    ),
-                    divider6,
-                    Text(
-                      "Por favor ingresa todos los datos solicitados a continuación",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 14.0,
-                        height: 1.6,
-                        color: Color(0xff1E1E1E).withOpacity(0.7),
-                        fontWeight: FontWeight.w500,
+                      divider6,
+                      Text(
+                        "Por favor ingresa todos los datos solicitados a continuación",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 14.0,
+                          height: 1.6,
+                          color: Color(0xff1E1E1E).withOpacity(0.7),
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
-                    ),
-                    divider30,
-                    TextFieldNormalWidget(
-                      text: "Título",
-                      icon: Assets.iconTitle,
-                    ),
-                    divider20,
-                    TextFieldNormalWidget(
-                      text: "Descripción",
-                      icon: Assets.iconDescription,
-                      maxLines: 3,
-                    ),
-                    divider30,
-                    const Text(
-                      "Qr Generado",
-                    ),
-                    divider6,
-                    QrImage(
-                      size: 120,
-                      data:
-                          "https://www.youtube.com/watch?v=XUwzASyHr4Q&ab_channel=WebDevSimplified",
-                    ),
-                    divider14,
+                      divider30,
+                      TextFieldNormalWidget(
+                        text: "Título",
+                        icon: Assets.iconTitle,
+                      ),
+                      divider20,
+                      TextFieldNormalWidget(
+                        text: "Descripción",
+                        icon: Assets.iconDescription,
+                        maxLines: 3,
+                      ),
+                      divider30,
+                      const Text(
+                        "Qr Generado",
+                      ),
+                      divider6,
+                      QrImage(
+                        size: 120,
+                        data:
+                            "https://www.youtube.com/watch?v=XUwzASyHr4Q&ab_channel=WebDevSimplified",
+                      ),
+                      divider14,
 
-                    ButtonNormalWidget(
-                      text: "Registrar",
-                    ),
+                      ButtonNormalWidget(
+                        text: "Registrar",
+                        onPressed: (){
+                          
+                        },
+                      ),
 
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),

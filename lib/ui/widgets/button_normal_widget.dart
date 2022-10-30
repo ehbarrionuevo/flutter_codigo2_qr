@@ -1,14 +1,14 @@
-
-
-
 import 'package:codigo2_qr/ui/general/colors.dart';
 import 'package:flutter/material.dart';
 
 class ButtonNormalWidget extends StatelessWidget {
-
   String text;
+  Function onPressed;
 
-  ButtonNormalWidget({required this.text});
+  ButtonNormalWidget({
+    required this.text,
+    required this.onPressed,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,9 @@ class ButtonNormalWidget extends StatelessWidget {
       width: double.infinity,
       height: 50.0,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          onPressed();
+        },
         style: ElevatedButton.styleFrom(
           backgroundColor: kBrandPrimaryColor,
           shape: RoundedRectangleBorder(
