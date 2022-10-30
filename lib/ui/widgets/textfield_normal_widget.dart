@@ -12,11 +12,13 @@ class TextFieldNormalWidget extends StatelessWidget {
   String text;
   String icon;
   int? maxLines;
+  TextEditingController controller;
 
   TextFieldNormalWidget({
     required this.text,
     required this.icon,
     this.maxLines,
+    required this.controller,
   });
 
   @override
@@ -40,6 +42,7 @@ class TextFieldNormalWidget extends StatelessWidget {
             ],
           ),
           child: TextField(
+            controller: controller,
             maxLines: maxLines,
             decoration: InputDecoration(
               contentPadding:

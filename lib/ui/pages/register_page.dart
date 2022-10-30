@@ -8,7 +8,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class RegisterPage extends StatelessWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+
+
+  final TextEditingController _titleController = TextEditingController();
+  final TextEditingController _descriptionController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -68,16 +71,23 @@ class RegisterPage extends StatelessWidget {
                         ),
                       ),
                       divider30,
+
+
                       TextFieldNormalWidget(
                         text: "Título",
                         icon: Assets.iconTitle,
+                        controller: _titleController,
                       ),
                       divider20,
+
                       TextFieldNormalWidget(
                         text: "Descripción",
                         icon: Assets.iconDescription,
                         maxLines: 3,
+                        controller: _descriptionController,
                       ),
+
+
                       divider30,
                       const Text(
                         "Qr Generado",
@@ -93,7 +103,8 @@ class RegisterPage extends StatelessWidget {
                       ButtonNormalWidget(
                         text: "Registrar",
                         onPressed: (){
-                          
+                          print(_titleController.text);
+                          print(_descriptionController.text);
                         },
                       ),
 
