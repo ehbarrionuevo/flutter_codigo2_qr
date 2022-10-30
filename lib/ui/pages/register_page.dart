@@ -1,4 +1,5 @@
 import 'package:codigo2_qr/ui/general/colors.dart';
+import 'package:codigo2_qr/ui/widgets/button_normal_widget.dart';
 import 'package:codigo2_qr/ui/widgets/general_widget.dart';
 import 'package:codigo2_qr/ui/widgets/textfield_normal_widget.dart';
 import 'package:codigo2_qr/utils/assets.dart';
@@ -86,26 +87,10 @@ class RegisterPage extends StatelessWidget {
                     ),
                     divider14,
 
-                    SizedBox(
-                      width: double.infinity,
-                      height: 50.0,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: kBrandPrimaryColor,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(14.0),
-                          ),
-                        ),
-                        child: Text(
-                          "Registrar",
-                          style: TextStyle(
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
+                    ButtonNormalWidget(
+                      text: "Registrar",
                     ),
+
                   ],
                 ),
               ),
