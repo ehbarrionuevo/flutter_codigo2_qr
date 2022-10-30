@@ -41,7 +41,7 @@ class TextFieldNormalWidget extends StatelessWidget {
               ),
             ],
           ),
-          child: TextField(
+          child: TextFormField(
             controller: controller,
             maxLines: maxLines,
             decoration: InputDecoration(
@@ -68,6 +68,9 @@ class TextFieldNormalWidget extends StatelessWidget {
                 borderSide: BorderSide.none,
               ),
             ),
+            validator: (value){
+              return "Hola";
+            },
           ),
         ),
       ],

@@ -9,6 +9,7 @@ import 'package:qr_flutter/qr_flutter.dart';
 
 class RegisterPage extends StatelessWidget {
 
+  final _keyForm = GlobalKey<FormState>();
 
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _descriptionController = TextEditingController();
@@ -39,76 +40,81 @@ class RegisterPage extends StatelessWidget {
                 physics: const BouncingScrollPhysics(),
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    children: [
-                      divider20,
-                      Container(
-                        width: 48,
-                        height: 4.5,
-                        decoration: BoxDecoration(
-                          color: Colors.black.withOpacity(0.2),
-                          borderRadius: BorderRadius.circular(10),
+                  child: Form(
+                    key: _keyForm,
+                    child: Column(
+                      children: [
+                        divider20,
+                        Container(
+                          width: 48,
+                          height: 4.5,
+                          decoration: BoxDecoration(
+                            color: Colors.black.withOpacity(0.2),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
                         ),
-                      ),
-                      divider20,
-                      Text(
-                        "Nuevo registro",
-                        style: TextStyle(
-                          fontSize: 18.0,
-                          color: Color(0xff1E1E1E),
-                          fontWeight: FontWeight.w600,
+                        divider20,
+                        Text(
+                          "Nuevo registro",
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            color: Color(0xff1E1E1E),
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
-                      ),
-                      divider6,
-                      Text(
-                        "Por favor ingresa todos los datos solicitados a continuación ",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 14.0,
-                          height: 1.6,
-                          color: Color(0xff1E1E1E).withOpacity(0.7),
-                          fontWeight: FontWeight.w500,
+                        divider6,
+                        Text(
+                          "Por favor ingresa todos los datos solicitados a continuación ",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 14.0,
+                            height: 1.6,
+                            color: Color(0xff1E1E1E).withOpacity(0.7),
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
-                      ),
-                      divider30,
+                        divider30,
 
 
-                      TextFieldNormalWidget(
-                        text: "Título",
-                        icon: Assets.iconTitle,
-                        controller: _titleController,
-                      ),
-                      divider20,
+                        TextFieldNormalWidget(
+                          text: "Título",
+                          icon: Assets.iconTitle,
+                          controller: _titleController,
+                        ),
 
-                      TextFieldNormalWidget(
-                        text: "Descripción",
-                        icon: Assets.iconDescription,
-                        maxLines: 3,
-                        controller: _descriptionController,
-                      ),
+                        divider20,
+
+                        TextFieldNormalWidget(
+                          text: "Descripción",
+                          icon: Assets.iconDescription,
+                          maxLines: 3,
+                          controller: _descriptionController,
+                        ),
 
 
-                      divider30,
-                      const Text(
-                        "Qr Generado",
-                      ),
-                      divider6,
-                      QrImage(
-                        size: 120,
-                        data:
-                            "https://www.youtube.com/watch?v=XUwzASyHr4Q&ab_channel=WebDevSimplified",
-                      ),
-                      divider14,
+                        divider30,
+                        const Text(
+                          "Qr Generado",
+                        ),
+                        divider6,
+                        QrImage(
+                          size: 120,
+                          data:
+                              "https://www.youtube.com/watch?v=XUwzASyHr4Q&ab_channel=WebDevSimplified",
+                        ),
+                        divider14,
 
-                      ButtonNormalWidget(
-                        text: "Registrar",
-                        onPressed: (){
-                          print(_titleController.text);
-                          print(_descriptionController.text);
-                        },
-                      ),
+                        ButtonNormalWidget(
+                          text: "Registrar",
+                          onPressed: (){
+                            if(_keyForm.currentState!.validate()){
 
-                    ],
+                            }
+                          },
+                        ),
+
+                      ],
+                    ),
                   ),
                 ),
               ),
