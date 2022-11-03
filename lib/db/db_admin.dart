@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:codigo2_qr/models/qr_model.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
@@ -34,16 +35,16 @@ class DBAdmin {
     );
   }
 
-  Future<int> insertQR() async {
+  Future<int> insertQR(QRModel model) async {
     Database? db = await getDatabase();
     int res = await db!.insert(
       "QR",
       {
-        "title": title,
-        "description": description,
-        "date": "2022-10-11",
-        "time": "10:45",
-        "url": "https://www.youtube.com/watch?v=UK2000bGHio&ab_channel=LifeofLuba",
+        "title": model.title,
+        "description": model.description,
+        "date": model.date,
+        "time": model.time,
+        "url": model.url,
       },
     );
     return res;
