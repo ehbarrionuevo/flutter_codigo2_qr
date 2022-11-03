@@ -50,4 +50,10 @@ class DBAdmin {
     return res;
   }
 
+  getQRData() async{
+    Database? db = await getDatabase();
+    List qrList = await db!.query("QR");
+    print(qrList);
+  }
+
 }

@@ -171,7 +171,6 @@ class RegisterPage extends StatelessWidget {
 
                             }
 
-                            // print(DateTime.now().toString().substring(0,10));
 
 
                           },

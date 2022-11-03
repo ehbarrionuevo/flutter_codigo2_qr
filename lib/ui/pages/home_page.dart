@@ -1,3 +1,4 @@
+import 'package:codigo2_qr/db/db_admin.dart';
 import 'package:codigo2_qr/ui/general/colors.dart';
 import 'package:codigo2_qr/ui/pages/scanner_page.dart';
 import 'package:codigo2_qr/ui/widgets/button_filter_widget.dart';
@@ -13,10 +14,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
   String buttonValue = "Hoy";
 
   @override
   Widget build(BuildContext context) {
+
+    DBAdmin.db.getQRData();
+
     return Scaffold(
       backgroundColor: kBrandSecondaryColor,
       floatingActionButton: FloatingActionButton(
