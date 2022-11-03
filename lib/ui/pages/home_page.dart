@@ -15,7 +15,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   String buttonValue = "Hoy";
   List<QRModel> qrList = [];
 
@@ -28,9 +27,7 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> getData() async {
     qrList = await DBAdmin.db.getQRData();
-    setState(() {
-
-    });
+    setState(() {});
   }
 
   @override
@@ -39,9 +36,8 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: kBrandSecondaryColor,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-
-          Navigator.push(context, MaterialPageRoute(builder: (context)=> ScannerPage()));
-
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => ScannerPage()));
         },
         backgroundColor: kBrandPrimaryColor,
         child: SvgPicture.asset(
@@ -126,12 +122,24 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
+                  // Expanded(
+                  //   child: SingleChildScrollView(
+                  //     physics: const BouncingScrollPhysics(),
+                  //     child: Column(
+                  //       children: qrList.map((QRModel e) => ItemListWidget(model: e,)).toList(),
+                  //     ),
+                  //   ),
+                  // ),
+
                   Expanded(
-                    child: SingleChildScrollView(
+                    child: ListView.builder(
                       physics: const BouncingScrollPhysics(),
-                      child: Column(
-                        children: qrList.map((QRModel e) => ItemListWidget(model: e,)).toList(),
-                      ),
+                      itemCount: qrList.length,
+                      itemBuilder: (BuildContext context, int index) {
+                        return ItemListWidget(
+                          model: qrList[index],
+                        );
+                      },
                     ),
                   ),
                 ],
