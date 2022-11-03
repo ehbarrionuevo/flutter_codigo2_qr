@@ -3,6 +3,7 @@ import 'package:codigo2_qr/ui/widgets/general_widget.dart';
 import 'package:codigo2_qr/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ItemListWidget extends StatelessWidget {
   QRModel model;
@@ -79,7 +80,13 @@ class ItemListWidget extends StatelessWidget {
               ],
             ),
           ),
-          SvgPicture.asset(Assets.iconLink),
+          InkWell(
+            onTap: (){
+              Uri url = Uri.parse(model.url);
+              launchUrl(url);
+            },
+            child: SvgPicture.asset(Assets.iconLink),
+          ),
         ],
       ),
     );
