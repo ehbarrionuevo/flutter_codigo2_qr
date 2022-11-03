@@ -8,6 +8,7 @@ import 'package:codigo2_qr/utils/assets.dart';
 import 'package:codigo2_qr/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:intl/intl.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -126,15 +127,27 @@ class RegisterPage extends StatelessWidget {
                             //
                             // }
 
+                            // print(DateTime.now().toString().substring(0,10));
+
+                            final DateTime now = DateTime.now();
+                            final DateFormat formatterDate = DateFormat('dd-MM-yyyy');
+                            final DateFormat formatterTime = DateFormat('Hm');
+                            final String formattedDate = formatterDate.format(now);
+                            final String formattedTime = formatterTime.format(now);
+                            print(formattedDate);
+                            print(formattedTime);
+
                             QRModel model = QRModel(
-                              title: "Link de la tarea de mañana",
-                              description: "Debemos de revisar todos los videos de la clase",
-                              date: "2022-10-10",
-                              time: "12:30",
-                              url: "https://www.falabella.com.pe/falabella-pe/category/cat13000461/Accesorios-gamer?sid=HO_CD_GAM_22",
+                              title: _titleController.text,
+                              description: _descriptionController.text,
+                              date: formattedDate,
+                              time: formattedTime,
+                              url: valueQR,
                             );
 
                             DBAdmin.db.insertQR(model);
+
+
                           },
                         ),
                       ],
