@@ -122,7 +122,7 @@ class RegisterPage extends StatelessWidget {
 
                         ButtonNormalWidget(
                           text: "Registrar",
-                          onPressed: () {
+                          onPressed: () async {
                             // if(_keyForm.currentState!.validate()){
                             //
                             // }
@@ -130,12 +130,13 @@ class RegisterPage extends StatelessWidget {
                             // print(DateTime.now().toString().substring(0,10));
 
                             final DateTime now = DateTime.now();
-                            final DateFormat formatterDate = DateFormat('dd-MM-yyyy');
+                            final DateFormat formatterDate =
+                                DateFormat('dd-MM-yyyy');
                             final DateFormat formatterTime = DateFormat('Hm');
-                            final String formattedDate = formatterDate.format(now);
-                            final String formattedTime = formatterTime.format(now);
-                            print(formattedDate);
-                            print(formattedTime);
+                            final String formattedDate =
+                                formatterDate.format(now);
+                            final String formattedTime =
+                                formatterTime.format(now);
 
                             QRModel model = QRModel(
                               title: _titleController.text,
@@ -145,9 +146,31 @@ class RegisterPage extends StatelessWidget {
                               url: valueQR,
                             );
 
-                            DBAdmin.db.insertQR(model);
+                            //int res = await DBAdmin.db.insertQR(model);
 
-
+                            if (10 > 0) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  backgroundColor: kBrandSecondaryColor,
+                                  behavior: SnackBarBehavior.floating,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(14.0)
+                                  ),
+                                  content: Row(
+                                    children: [
+                                      Icon(
+                                        Icons.check_circle,
+                                        color: Colors.white,
+                                      ),
+                                      dividerWidth10,
+                                      Text(
+                                        "Registro realizado con éxito.",
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              );
+                            }
                           },
                         ),
                       ],
