@@ -16,19 +16,19 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   String buttonValue = "Hoy";
-  List<QRModel> qrList = [];
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    getData();
-  }
-
-  Future<void> getData() async {
-    qrList = await DBAdmin.db.getQRData();
-    setState(() {});
-  }
+  // List<QRModel> qrList = [];
+  //
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   getData();
+  // }
+  //
+  // Future<void> getData() async {
+  //   qrList = await DBAdmin.db.getQRData();
+  //   setState(() {});
+  // }
 
   @override
   Widget build(BuildContext context) {
