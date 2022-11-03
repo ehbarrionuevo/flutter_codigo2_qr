@@ -5,8 +5,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DBAdmin {
-
   static final DBAdmin db = DBAdmin._();
+
   DBAdmin._();
 
   Database? myDatabase;
@@ -28,8 +28,25 @@ class DBAdmin {
       version: 1,
       onOpen: (db) {},
       onCreate: (Database db, int version) async {
-        await db.execute("CREATE TABLE QR(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, description TEXT, date TEXT, time TEXT, url TEXT)");
+        await db.execute(
+            "CREATE TABLE QR(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, description TEXT, date TEXT, time TEXT, url TEXT)");
       },
     );
   }
+
+  Future<int> insertQR() async {
+    Database? db = await getDatabase();
+    int res = await db!.insert(
+      "QR",
+      {
+        "title": "Video labortorio 5",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+        "date": "2022-10-11",
+        "time": "10:45",
+        "url": "https://www.youtube.com/watch?v=UK2000bGHio&ab_channel=LifeofLuba",
+      },
+    );
+    return res;
+  }
+
 }
