@@ -1,4 +1,5 @@
 import 'package:codigo2_qr/db/db_admin.dart';
+import 'package:codigo2_qr/models/qr_model.dart';
 import 'package:codigo2_qr/ui/general/colors.dart';
 import 'package:codigo2_qr/ui/pages/scanner_page.dart';
 import 'package:codigo2_qr/ui/widgets/button_filter_widget.dart';
@@ -16,12 +17,27 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
   String buttonValue = "Hoy";
+  List<QRModel> qrList = [];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getData();
+  }
+
+  Future<void> getData() async {
+    qrList = await DBAdmin.db.getQRData();
+    print(qrList);
+    setState(() {
+
+    });
+  }
+
+
 
   @override
   Widget build(BuildContext context) {
-
-    DBAdmin.db.getQRData();
-
     return Scaffold(
       backgroundColor: kBrandSecondaryColor,
       floatingActionButton: FloatingActionButton(

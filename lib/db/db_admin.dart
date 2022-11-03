@@ -56,16 +56,13 @@ class DBAdmin {
     // for(var item in qrList){
     //   print(item);
     // }
-
     // List<QRModel> listModel = [];
     //
     // qrList.forEach((element) {
     //   QRModel model = QRModel.matasquita(element);
     //   listModel.add(model);
     // });
-
     List<QRModel> listModel = qrList.map((e) => QRModel.matasquita(e)).toList();
-    print(listModel);
     return listModel;
   }
 
