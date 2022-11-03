@@ -132,6 +132,7 @@ class _ScannerPageState extends State<ScannerPage> {
                               MaterialPageRoute(
                                 builder: (context) => RegisterPage(
                                   valueQR: "https://github.com/juliuscanute/qr_code_scanner/issues/560",
+                                  //valueQR: valueUrl,
                                 ),
                               ),
                             );
