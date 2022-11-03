@@ -5,6 +5,10 @@ import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DBAdmin {
+
+  static final DBAdmin db = DBAdmin._();
+  DBAdmin._();
+
   Database? myDatabase;
 
   Future<Database?> getDatabase() async {
