@@ -131,17 +131,40 @@ class _HomePageState extends State<HomePage> {
                   //   ),
                   // ),
 
-                  Expanded(
-                    child: ListView.builder(
-                      physics: const BouncingScrollPhysics(),
-                      itemCount: qrList.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        return ItemListWidget(
-                          model: qrList[index],
+                  // Expanded(
+                  //   child: ListView.builder(
+                  //     physics: const BouncingScrollPhysics(),
+                  //     itemCount: qrList.length,
+                  //     itemBuilder: (BuildContext context, int index) {
+                  //       return ItemListWidget(
+                  //         model: qrList[index],
+                  //       );
+                  //     },
+                  //   ),
+                  // ),
+
+                  FutureBuilder(
+                    future: DBAdmin.db.getQRData(),
+                    builder: (BuildContext context, AsyncSnapshot snap){
+                      if(snap.hasData){
+                        List<QRModel> list = snap.data;
+                        return Expanded(
+                          child: ListView.builder(
+                            physics: const BouncingScrollPhysics(),
+                            itemCount: list.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return ItemListWidget(
+                                model: list[index],
+                              );
+                            },
+                          ),
                         );
-                      },
-                    ),
+                      }
+                      return Center(child: CircularProgressIndicator(),);
+                    },
                   ),
+
+
                 ],
               ),
             ),
