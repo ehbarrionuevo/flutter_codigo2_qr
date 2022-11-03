@@ -36,6 +36,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
 
     ExampleProvider _exampleProvider = Provider.of<ExampleProvider>(context);
+    print("BUILD HOME!!");
 
     return Scaffold(
       backgroundColor: kBrandSecondaryColor,

@@ -28,7 +28,9 @@ class RegisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ExampleProvider _exampleProvider = Provider.of<ExampleProvider>(context);
+
+    ExampleProvider _exampleProvider = Provider.of<ExampleProvider>(context, listen: false);
+    print("BUILD REGISTER!!!!!!");
 
     return Scaffold(
       backgroundColor: kBrandSecondaryColor,
@@ -123,12 +125,24 @@ class RegisterPage extends StatelessWidget {
                           data: valueQR,
                         ),
                         divider14,
-                        Text(
-                          _exampleProvider.counter.toString(),
-                          style: TextStyle(
-                            fontSize: 40,
-                          ),
+                        // Text(
+                        //   _exampleProvider.counter.toString(),
+                        //   style: TextStyle(
+                        //     fontSize: 40,
+                        //   ),
+                        // ),
+
+                        Consumer<ExampleProvider>(
+                          builder: (context, provider, _) {
+                            return Text(
+                              provider.counter.toString(),
+                              style: TextStyle(
+                                fontSize: 40.0,
+                              ),
+                            );
+                          },
                         ),
+
                         ButtonNormalWidget(
                           text: "Registrar",
                           onPressed: () async {
