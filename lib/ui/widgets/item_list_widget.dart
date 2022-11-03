@@ -1,17 +1,21 @@
-
-
+import 'package:codigo2_qr/models/qr_model.dart';
 import 'package:codigo2_qr/ui/widgets/general_widget.dart';
 import 'package:codigo2_qr/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class ItemListWidget extends StatelessWidget {
+  QRModel model;
+
+  ItemListWidget({
+    required this.model,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
+    return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
-      padding: const  EdgeInsets.symmetric(horizontal: 12, vertical: 14.0),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 14.0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(14.0),
@@ -30,7 +34,7 @@ class ItemListWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Lorem ipsum dolor sit amet",
+                  model.title,
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
                     fontSize: 15.0,
@@ -38,7 +42,7 @@ class ItemListWidget extends StatelessWidget {
                 ),
                 divider3,
                 Text(
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+                  model.description,
                   style: TextStyle(
                     height: 1.2,
                     color: Colors.black54,
@@ -53,7 +57,7 @@ class ItemListWidget extends StatelessWidget {
                       color: Colors.black54,
                     ),
                     Text(
-                      "12/12/2022",
+                      model.date,
                       style: TextStyle(
                         color: Colors.black54,
                       ),
@@ -65,7 +69,7 @@ class ItemListWidget extends StatelessWidget {
                       color: Colors.black54,
                     ),
                     Text(
-                      "10:30 am",
+                      model.time,
                       style: TextStyle(
                         color: Colors.black54,
                       ),

@@ -28,13 +28,10 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> getData() async {
     qrList = await DBAdmin.db.getQRData();
-    print(qrList);
     setState(() {
 
     });
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -133,15 +130,7 @@ class _HomePageState extends State<HomePage> {
                     child: SingleChildScrollView(
                       physics: const BouncingScrollPhysics(),
                       child: Column(
-                        children: [
-                          ItemListWidget(),
-                          ItemListWidget(),
-                          ItemListWidget(),
-                          ItemListWidget(),
-                          ItemListWidget(),
-                          ItemListWidget(),
-                          ItemListWidget(),
-                        ],
+                        children: qrList.map((QRModel e) => ItemListWidget(model: e,)).toList(),
                       ),
                     ),
                   ),
