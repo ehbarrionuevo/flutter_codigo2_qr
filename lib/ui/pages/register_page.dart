@@ -1,5 +1,6 @@
 import 'package:codigo2_qr/db/db_admin.dart';
 import 'package:codigo2_qr/models/qr_model.dart';
+import 'package:codigo2_qr/providers/example_provider.dart';
 import 'package:codigo2_qr/ui/general/colors.dart';
 import 'package:codigo2_qr/ui/widgets/button_normal_widget.dart';
 import 'package:codigo2_qr/ui/widgets/general_widget.dart';
@@ -9,6 +10,7 @@ import 'package:codigo2_qr/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -26,6 +28,8 @@ class RegisterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ExampleProvider _exampleProvider = Provider.of<ExampleProvider>(context);
+
     return Scaffold(
       backgroundColor: kBrandSecondaryColor,
       body: Column(
@@ -119,60 +123,64 @@ class RegisterPage extends StatelessWidget {
                           data: valueQR,
                         ),
                         divider14,
-
+                        Text(
+                          _exampleProvider.counter.toString(),
+                          style: TextStyle(
+                            fontSize: 40,
+                          ),
+                        ),
                         ButtonNormalWidget(
                           text: "Registrar",
                           onPressed: () async {
-                            if(_keyForm.currentState!.validate()){
+                            _exampleProvider.addCounter();
 
-                              final DateTime now = DateTime.now();
-                              final DateFormat formatterDate =
-                              DateFormat('dd-MM-yyyy');
-                              final DateFormat formatterTime = DateFormat('Hm');
-                              final String formattedDate =
-                              formatterDate.format(now);
-                              final String formattedTime =
-                              formatterTime.format(now);
-
-                              QRModel model = QRModel(
-                                title: _titleController.text,
-                                description: _descriptionController.text,
-                                date: formattedDate,
-                                time: formattedTime,
-                                url: valueQR,
-                              );
-
-                              int res = await DBAdmin.db.insertQR(model);
-
-                              if (res > 0) {
-                                ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    backgroundColor: kBrandSecondaryColor,
-                                    behavior: SnackBarBehavior.floating,
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(14.0)
-                                    ),
-                                    content: Row(
-                                      children: [
-                                        Icon(
-                                          Icons.check_circle,
-                                          color: Colors.white,
-                                        ),
-                                        dividerWidth10,
-                                        Text(
-                                          "Registro realizado con éxito.",
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                );
-                                Navigator.pop(context);
-                              }
-
-                            }
-
-
-
+                            // if(_keyForm.currentState!.validate()){
+                            //
+                            //   final DateTime now = DateTime.now();
+                            //   final DateFormat formatterDate =
+                            //   DateFormat('dd-MM-yyyy');
+                            //   final DateFormat formatterTime = DateFormat('Hm');
+                            //   final String formattedDate =
+                            //   formatterDate.format(now);
+                            //   final String formattedTime =
+                            //   formatterTime.format(now);
+                            //
+                            //   QRModel model = QRModel(
+                            //     title: _titleController.text,
+                            //     description: _descriptionController.text,
+                            //     date: formattedDate,
+                            //     time: formattedTime,
+                            //     url: valueQR,
+                            //   );
+                            //
+                            //   int res = await DBAdmin.db.insertQR(model);
+                            //
+                            //   if (res > 0) {
+                            //     ScaffoldMessenger.of(context).showSnackBar(
+                            //       SnackBar(
+                            //         backgroundColor: kBrandSecondaryColor,
+                            //         behavior: SnackBarBehavior.floating,
+                            //         shape: RoundedRectangleBorder(
+                            //             borderRadius: BorderRadius.circular(14.0)
+                            //         ),
+                            //         content: Row(
+                            //           children: [
+                            //             Icon(
+                            //               Icons.check_circle,
+                            //               color: Colors.white,
+                            //             ),
+                            //             dividerWidth10,
+                            //             Text(
+                            //               "Registro realizado con éxito.",
+                            //             ),
+                            //           ],
+                            //         ),
+                            //       ),
+                            //     );
+                            //     Navigator.pop(context);
+                            //   }
+                            //
+                            // }
                           },
                         ),
                       ],

@@ -1,5 +1,6 @@
 import 'package:codigo2_qr/db/db_admin.dart';
 import 'package:codigo2_qr/models/qr_model.dart';
+import 'package:codigo2_qr/providers/example_provider.dart';
 import 'package:codigo2_qr/ui/general/colors.dart';
 import 'package:codigo2_qr/ui/pages/scanner_page.dart';
 import 'package:codigo2_qr/ui/widgets/button_filter_widget.dart';
@@ -8,6 +9,7 @@ import 'package:codigo2_qr/ui/widgets/item_list_widget.dart';
 import 'package:codigo2_qr/utils/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -32,6 +34,9 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+
+    ExampleProvider _exampleProvider = Provider.of<ExampleProvider>(context);
+
     return Scaffold(
       backgroundColor: kBrandSecondaryColor,
       floatingActionButton: FloatingActionButton(
@@ -77,6 +82,12 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                         divider40,
+                        Text(
+                          _exampleProvider.counter.toString(),
+                          style: TextStyle(
+                            fontSize: 40,
+                          ),
+                        ),
                         Text(
                           "Historial de Escaneos",
                           style: TextStyle(
