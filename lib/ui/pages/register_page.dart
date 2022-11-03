@@ -1,4 +1,5 @@
 import 'package:codigo2_qr/db/db_admin.dart';
+import 'package:codigo2_qr/models/qr_model.dart';
 import 'package:codigo2_qr/ui/general/colors.dart';
 import 'package:codigo2_qr/ui/widgets/button_normal_widget.dart';
 import 'package:codigo2_qr/ui/widgets/general_widget.dart';
@@ -10,11 +11,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class RegisterPage extends StatelessWidget {
-
   String valueQR;
 
-  RegisterPage({required this.valueQR,});
-
+  RegisterPage({
+    required this.valueQR,
+  });
 
   final _keyForm = GlobalKey<FormState>();
 
@@ -83,7 +84,6 @@ class RegisterPage extends StatelessWidget {
                         ),
                         divider30,
 
-
                         TextFieldNormalWidget(
                           text: "Título",
                           icon: Assets.iconTitle,
@@ -108,7 +108,6 @@ class RegisterPage extends StatelessWidget {
                         //   type: InputTypeEnum.dni,
                         // ),
 
-
                         divider30,
                         const Text(
                           "Qr Generado",
@@ -122,14 +121,22 @@ class RegisterPage extends StatelessWidget {
 
                         ButtonNormalWidget(
                           text: "Registrar",
-                          onPressed: (){
+                          onPressed: () {
                             // if(_keyForm.currentState!.validate()){
                             //
                             // }
-                            DBAdmin.db.insertQR();
+
+                            QRModel model = QRModel(
+                              title: "Link de la tarea de mañana",
+                              description: "Debemos de revisar todos los videos de la clase",
+                              date: "2022-10-10",
+                              time: "12:30",
+                              url: "https://www.falabella.com.pe/falabella-pe/category/cat13000461/Accesorios-gamer?sid=HO_CD_GAM_22",
+                            );
+
+                            DBAdmin.db.insertQR(model);
                           },
                         ),
-
                       ],
                     ),
                   ),
