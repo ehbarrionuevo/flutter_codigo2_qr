@@ -39,8 +39,8 @@ class DBAdmin {
     int res = await db!.insert(
       "QR",
       {
-        "title": "Video labortorio 5",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
+        "title": title,
+        "description": description,
         "date": "2022-10-11",
         "time": "10:45",
         "url": "https://www.youtube.com/watch?v=UK2000bGHio&ab_channel=LifeofLuba",

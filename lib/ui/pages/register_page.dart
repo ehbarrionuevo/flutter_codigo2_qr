@@ -126,7 +126,7 @@ class RegisterPage extends StatelessWidget {
                             // if(_keyForm.currentState!.validate()){
                             //
                             // }
-                            DBAdmin.db.initDatabase();
+                            DBAdmin.db.insertQR();
                           },
                         ),
 
