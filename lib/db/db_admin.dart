@@ -50,10 +50,20 @@ class DBAdmin {
     return res;
   }
 
-  getQRData() async{
+  Future<List<QRModel>> getQRData() async{
     Database? db = await getDatabase();
     List qrList = await db!.query("QR");
-    print(qrList);
+    // for(var item in qrList){
+    //   print(item);
+    // }
+    List<QRModel> listModel = [];
+
+    qrList.forEach((element) {
+      QRModel model = QRModel.matasquita(element);
+      listModel.add(model);
+    });
+
+    return listModel;
   }
 
 }
