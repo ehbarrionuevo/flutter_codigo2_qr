@@ -21,13 +21,14 @@ class DBAdmin {
 
   Future<Database> initDatabase() async {
     Directory directory = await getApplicationDocumentsDirectory();
+    // print(directory.path);
     String path = join(directory.path, "QrDB.db");
     return openDatabase(
       path,
       version: 1,
       onOpen: (db) {},
       onCreate: (Database db, int version) async {
-        await db.execute("CREATE TABLE QR(id INTEGER PRIMARY AUTOINCREMENT, title TEXT, description TEXT, date TEXT, time TEXT, url TEXT)");
+        await db.execute("CREATE TABLE QR(id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT, description TEXT, date TEXT, time TEXT, url TEXT)");
       },
     );
   }

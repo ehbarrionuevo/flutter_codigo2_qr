@@ -1,3 +1,4 @@
+import 'package:codigo2_qr/db/db_admin.dart';
 import 'package:codigo2_qr/ui/general/colors.dart';
 import 'package:codigo2_qr/ui/widgets/button_normal_widget.dart';
 import 'package:codigo2_qr/ui/widgets/general_widget.dart';
@@ -122,9 +123,10 @@ class RegisterPage extends StatelessWidget {
                         ButtonNormalWidget(
                           text: "Registrar",
                           onPressed: (){
-                            if(_keyForm.currentState!.validate()){
-
-                            }
+                            // if(_keyForm.currentState!.validate()){
+                            //
+                            // }
+                            DBAdmin.db.initDatabase();
                           },
                         ),
 
