@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
 
     ExampleProvider _exampleProvider = Provider.of<ExampleProvider>(context);
-
+    DBProvider _dbProvider = Provider.of<DBProvider>(context, listen: true);
     print("BUILD HOME!!!!!");
 
     return Scaffold(
@@ -159,6 +159,12 @@ class _HomePageState extends State<HomePage> {
                   //     },
                   //   ),
                   // ),
+                  Text(_dbProvider.qrList.toString()),
+                  Consumer<DBProvider>(
+                    builder: (context, provider, _){
+                      return Text(provider.qrList.toString());
+                    },
+                  ),
 
                   FutureBuilder(
                     future: DBAdmin.db.getQRData(),
