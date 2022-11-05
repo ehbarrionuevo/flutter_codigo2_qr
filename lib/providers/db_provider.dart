@@ -20,6 +20,7 @@ class DBProvider extends ChangeNotifier{
 
   Future<void> addRegister(QRModel  model) async{
     res = await DBAdmin.db.insertQR(model);
+    notifyListeners();
     getDataProvider();
   }
 

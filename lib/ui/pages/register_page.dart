@@ -1,5 +1,6 @@
 import 'package:codigo2_qr/db/db_admin.dart';
 import 'package:codigo2_qr/models/qr_model.dart';
+import 'package:codigo2_qr/providers/db_provider.dart';
 import 'package:codigo2_qr/providers/example_provider.dart';
 import 'package:codigo2_qr/ui/general/colors.dart';
 import 'package:codigo2_qr/ui/widgets/button_normal_widget.dart';
@@ -30,6 +31,7 @@ class RegisterPage extends StatelessWidget {
   Widget build(BuildContext context) {
 
     ExampleProvider _exampleProvider = Provider.of<ExampleProvider>(context, listen: false);
+    DBProvider _dbProvider = Provider.of<DBProvider>(context);
     print("BUILD REGISTER!!!!!!");
 
     return Scaffold(
@@ -167,9 +169,9 @@ class RegisterPage extends StatelessWidget {
                                 url: valueQR,
                               );
 
-                              int res = await DBAdmin.db.insertQR(model);
+                              _dbProvider.addRegister(model);
 
-                              if (res > 0) {
+                              if (_dbProvider.res > 0) {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(
                                     backgroundColor: kBrandSecondaryColor,
