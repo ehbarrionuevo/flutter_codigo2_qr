@@ -159,33 +159,43 @@ class _HomePageState extends State<HomePage> {
                   //     },
                   //   ),
                   // ),
-                  Text(_dbProvider.qrList.toString()),
+                  // _dbProvider.isLoading ? CircularProgressIndicator() : Text(_dbProvider.qrList.toString()),
                   Consumer<DBProvider>(
                     builder: (context, provider, _){
-                      return Text(provider.qrList.toString());
+                      return !provider.isLoading ? Expanded(
+                        child: ListView.builder(
+                          physics: const BouncingScrollPhysics(),
+                          itemCount: provider.qrList.length,
+                          itemBuilder: (BuildContext context,int index){
+                            return ItemListWidget(
+                              model: provider.qrList[index],
+                            );
+                          },
+                        ),
+                      ): Center(child: CircularProgressIndicator(),);
                     },
                   ),
 
-                  FutureBuilder(
-                    future: DBAdmin.db.getQRData(),
-                    builder: (BuildContext context, AsyncSnapshot snap){
-                      if(snap.hasData){
-                        List<QRModel> list = snap.data;
-                        return Expanded(
-                          child: ListView.builder(
-                            physics: const BouncingScrollPhysics(),
-                            itemCount: list.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              return ItemListWidget(
-                                model: list[index],
-                              );
-                            },
-                          ),
-                        );
-                      }
-                      return Center(child: CircularProgressIndicator(),);
-                    },
-                  ),
+                  // FutureBuilder(
+                  //   future: DBAdmin.db.getQRData(),
+                  //   builder: (BuildContext context, AsyncSnapshot snap){
+                  //     if(snap.hasData){
+                  //       List<QRModel> list = snap.data;
+                  //       return Expanded(
+                  //         child: ListView.builder(
+                  //           physics: const BouncingScrollPhysics(),
+                  //           itemCount: list.length,
+                  //           itemBuilder: (BuildContext context, int index) {
+                  //             return ItemListWidget(
+                  //               model: list[index],
+                  //             );
+                  //           },
+                  //         ),
+                  //       );
+                  //     }
+                  //     return Center(child: CircularProgressIndicator(),);
+                  //   },
+                  // ),
 
 
                 ],
