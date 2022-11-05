@@ -10,14 +10,14 @@ class DBAdmin {
 
   DBAdmin._();
 
-  Database? myDatabase;
+  Database? _myDatabase;
 
   Future<Database?> getDatabase() async {
-    if (myDatabase != null) {
-      return myDatabase;
+    if (_myDatabase != null) {
+      return _myDatabase;
     }
-    myDatabase = await initDatabase();
-    return myDatabase;
+    _myDatabase = await initDatabase();
+    return _myDatabase;
   }
 
   Future<Database> initDatabase() async {

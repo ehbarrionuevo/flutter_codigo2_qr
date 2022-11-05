@@ -1,5 +1,6 @@
 import 'package:codigo2_qr/db/db_admin.dart';
 import 'package:codigo2_qr/models/qr_model.dart';
+import 'package:codigo2_qr/providers/db_provider.dart';
 import 'package:codigo2_qr/providers/example_provider.dart';
 import 'package:codigo2_qr/ui/general/colors.dart';
 import 'package:codigo2_qr/ui/pages/scanner_page.dart';
@@ -36,6 +37,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
 
     ExampleProvider _exampleProvider = Provider.of<ExampleProvider>(context);
+    DBProvider _dbProvider = Provider.of<DBProvider>(context);
     print("BUILD HOME!!!!!");
 
     return Scaffold(
