@@ -62,7 +62,9 @@ class DBAdmin {
     //   QRModel model = QRModel.matasquita(element);
     //   listModel.add(model);
     // });
+
     List<QRModel> listModel = qrList.map((e) => QRModel.matasquita(e)).toList();
+
     return listModel;
   }
 
