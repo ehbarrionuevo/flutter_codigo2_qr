@@ -19,6 +19,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   String buttonValue = "Hoy";
+
   // List<QRModel> qrList = [];
   //
   @override
@@ -30,6 +31,7 @@ class _HomePageState extends State<HomePage> {
       dbProvider.getDataProvider();
     });
   }
+
   //
   // Future<void> getData() async {
   //   qrList = await DBAdmin.db.getQRData();
@@ -38,7 +40,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     ExampleProvider _exampleProvider = Provider.of<ExampleProvider>(context);
     DBProvider _dbProvider = Provider.of<DBProvider>(context, listen: true);
     print("BUILD HOME!!!!!");
@@ -160,21 +161,38 @@ class _HomePageState extends State<HomePage> {
                   //   ),
                   // ),
                   // _dbProvider.isLoading ? CircularProgressIndicator() : Text(_dbProvider.qrList.toString()),
-                  Consumer<DBProvider>(
-                    builder: (context, provider, _){
-                      return !provider.isLoading ? Expanded(
-                        child: ListView.builder(
-                          physics: const BouncingScrollPhysics(),
-                          itemCount: provider.qrList.length,
-                          itemBuilder: (BuildContext context,int index){
-                            return ItemListWidget(
-                              model: provider.qrList[index],
-                            );
-                          },
+
+                  // Consumer<DBProvider>(
+                  //   builder: (context, provider, _){
+                  //     return !provider.isLoading ? Expanded(
+                  //       child: ListView.builder(
+                  //         physics: const BouncingScrollPhysics(),
+                  //         itemCount: provider.qrList.length,
+                  //         itemBuilder: (BuildContext context,int index){
+                  //           return ItemListWidget(
+                  //             model: provider.qrList[index],
+                  //           );
+                  //         },
+                  //       ),
+                  //     ): Center(child: CircularProgressIndicator(),);
+                  //   },
+                  // ),
+
+                  !_dbProvider.isLoading
+                      ? Expanded(
+                          child: ListView.builder(
+                            physics: const BouncingScrollPhysics(),
+                            itemCount: _dbProvider.qrList.length,
+                            itemBuilder: (BuildContext context, int index) {
+                              return ItemListWidget(
+                                model: _dbProvider.qrList[index],
+                              );
+                            },
+                          ),
+                        )
+                      : Center(
+                          child: CircularProgressIndicator(),
                         ),
-                      ): Center(child: CircularProgressIndicator(),);
-                    },
-                  ),
 
                   // FutureBuilder(
                   //   future: DBAdmin.db.getQRData(),
@@ -196,8 +214,6 @@ class _HomePageState extends State<HomePage> {
                   //     return Center(child: CircularProgressIndicator(),);
                   //   },
                   // ),
-
-
                 ],
               ),
             ),
