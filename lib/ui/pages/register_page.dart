@@ -144,7 +144,6 @@ class RegisterPage extends StatelessWidget {
                         //     );
                         //   },
                         // ),
-
                         ButtonNormalWidget(
                           text: "Registrar",
                           onPressed: () async {

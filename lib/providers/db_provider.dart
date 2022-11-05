@@ -14,6 +14,7 @@ class DBProvider extends ChangeNotifier{
     isLoading = true;
     notifyListeners();
     qrList = await DBAdmin.db.getQRData();
+    qrList = qrList.reversed.toList();
     isLoading = false;
     notifyListeners();
   }
