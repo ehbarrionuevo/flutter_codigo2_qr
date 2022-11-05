@@ -21,12 +21,15 @@ class _HomePageState extends State<HomePage> {
   String buttonValue = "Hoy";
   // List<QRModel> qrList = [];
   //
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  //   getData();
-  // }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      DBProvider dbProvider = Provider.of<DBProvider>(context, listen: false);
+      dbProvider.getDataProvider();
+    });
+  }
   //
   // Future<void> getData() async {
   //   qrList = await DBAdmin.db.getQRData();
@@ -37,7 +40,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
 
     ExampleProvider _exampleProvider = Provider.of<ExampleProvider>(context);
-    DBProvider _dbProvider = Provider.of<DBProvider>(context);
+
     print("BUILD HOME!!!!!");
 
     return Scaffold(

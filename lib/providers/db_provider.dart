@@ -8,7 +8,7 @@ class DBProvider extends ChangeNotifier{
 
   List<QRModel> qrList = [];
 
-  getDataProvider() async{
+  Future<void> getDataProvider() async{
     qrList = await DBAdmin.db.getQRData();
     notifyListeners();
   }

@@ -1,4 +1,5 @@
 
+import 'package:codigo2_qr/providers/db_provider.dart';
 import 'package:codigo2_qr/providers/example_provider.dart';
 import 'package:codigo2_qr/ui/pages/home_page.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => ExampleProvider()),
+        ChangeNotifierProvider(create: (_) => DBProvider()),
       ],
       child: MaterialApp(
         title: "QRApp",
